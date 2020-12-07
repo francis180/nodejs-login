@@ -29,10 +29,10 @@ app.post('/', (req, res) => {
     if (response.statusCode === 200) {
       response.on("data", (data) => {
         const weatherData = JSON.parse(data);
-        res.render('index', {data: weatherData});
+        res.json({data: weatherData});
       })
     } else {
-      res.render('index', {data: "0"})
+      res.json({data: "0"})
     }
   })
 })
